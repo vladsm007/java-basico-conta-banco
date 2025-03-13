@@ -38,4 +38,31 @@ public class Conta {
     public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
+
+    @Override
+    public String toString() {
+        return "Conta{" +
+                "numeroDaConta=" + numeroDaConta +
+                ", titular='" + titular + '\'' +
+                ", saldo=" + saldo +
+                '}';
+    }
+
+    public void depositar(Double valor) {
+        if(valor >0) {
+            saldo += valor;
+            System.out.println("Deposito realizado com sucesso! Novo saldo: "+ saldo);
+        }else{
+            System.out.println("Valor depositado invalido");
+        }
+    }
+
+    public void sacar(Double valor) {
+        if (valor > 0 && valor <= saldo) {
+            saldo -= valor;
+            System.out.println("Saque realizado com sucesso! Novo saldo: " + saldo);
+        }else {
+            System.out.println("Saldo insuficiente ou valor do saque invalido.");
+        }
+    }
 }
